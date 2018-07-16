@@ -1,6 +1,6 @@
 'use strict'
 function BankAccount() {
-  this._balance = 0;
+  this._balance = 0.00;
 };
 
 BankAccount.prototype.balance = function() {

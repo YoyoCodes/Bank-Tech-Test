@@ -7,18 +7,18 @@ describe('Bank Account', () => {
   });
 
   it('has a default balance of 0', () => {
-    expect(bankAccount.balance()).toEqual(0);
+    expect(bankAccount.balance()).toEqual(0.00);
   });
 
   it('can handle a deposit of 300', () => {
-    bankAccount.deposit(300);
-    expect(bankAccount.balance()).toEqual(300);
+    bankAccount.deposit(300.00);
+    expect(bankAccount.balance()).toEqual(300.00);
   });
 
   it('can handle a withdrawal of 100', () => {
-    bankAccount.deposit(300);
-    bankAccount.withdrawal(100);
-    expect(bankAccount.balance()).toEqual(200);
+    bankAccount.deposit(300.00);
+    bankAccount.withdrawal(100.00);
+    expect(bankAccount.balance()).toEqual(200.00);
   });
 
   describe('when the withdrawal is greater than the balance', () => {

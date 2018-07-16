@@ -7,13 +7,13 @@ describe('Feature', () => {
   });
 
   it('a user can make a deposit', () => {
-    bankAccount.deposit(500);
-    expect(bankAccount.balance()).toEqual(500);
+    bankAccount.deposit(500.00);
+    expect(bankAccount.balance()).toEqual(500.00);
   });
 
   it('a user can make a withdrawal', () => {
-    bankAccount.deposit(500);
-    bankAccount.withdrawal(300);
-    expect(bankAccount.balance()).toEqual(200);
+    bankAccount.deposit(500.00);
+    bankAccount.withdrawal(300.00);
+    expect(bankAccount.balance()).toEqual(200.00);
   });
 });
