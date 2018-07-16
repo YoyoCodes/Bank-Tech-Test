@@ -28,9 +28,13 @@ date || credit || debit || balance
 Writing user stories for the requirements: <br>
 
 ```
-As a user 
+As a user
 So I can save money
 I want to be able to make a deposit into a bank account
+
+As a user
+So I can use money
+I want to be able to make a withdrawal
 ```
 
 ## Getting started
