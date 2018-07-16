@@ -1,8 +1,12 @@
 'use strict'
-function BankAccount() {};
-
-BankAccount.prototype.balance = function() {
-  return 500
+function BankAccount() {
+  this._balance = 0;
 };
 
-BankAccount.prototype.deposit = function() {};
+BankAccount.prototype.balance = function() {
+  return this._balance
+};
+
+BankAccount.prototype.deposit = function(amount) {
+  this._balance += amount;
+};

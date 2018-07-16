@@ -5,9 +5,14 @@ describe('Bank Account', () => {
     expect(bankAccount).toBeDefined();
   });
 
+  it('has a default balance of 0', () => {
+    let bankAccount = new BankAccount;
+    expect(bankAccount.balance()).toEqual(0);
+  });
+
   it('can handle a deposit', () => {
     let bankAccount = new BankAccount;
-    bankAccount.deposit(500);
-    expect(bankAccount.balance()).toEqual(500);
+    bankAccount.deposit(300);
+    expect(bankAccount.balance()).toEqual(300);
   });
 });
