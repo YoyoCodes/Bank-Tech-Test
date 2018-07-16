@@ -20,4 +20,11 @@ describe('Bank Account', () => {
     bankAccount.withdrawal(100);
     expect(bankAccount.balance()).toEqual(200);
   });
+
+  describe('when the withdrawal is greater than the balance', () => {
+    it('does not allow the transaction', () => {
+      bankAccount.deposit(100);
+      expect( function() {bankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
+    });
+  });
 });
