@@ -7,12 +7,10 @@ describe('Feature', () => {
   });
 
   it('a user can see a bank statement', () => {
-    let statement = new BankStatement;
-    let bankAccount = new BankAccount(statement);
-    let printer = new Printer(statement);
-    bankAccount.deposit(100);
-    console.log = jasmine.createSpy("pretty message");
-    let task = printer.viewStatement();
-    expect(console.log).toHaveBeenCalledWith(task);
+    let bankAccount = new BankAccount;
+    let printer = new StatementPrinter;
+    spyOn(console, 'log');
+    printer.viewStatement();
+    expect(console.log).toHaveBeenCalled();
   });
 });
