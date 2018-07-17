@@ -21,7 +21,7 @@ describe('Bank Account', () => {
 
   it('adds a deposit of 300.00 to the transaction list', () => {
     bankAccount.deposit(300.00);
-    expect(bankAccount.viewTransactions()).toContain(300.00);
+    expect(bankAccount.viewTransactions()).toContain(['17/7/2018', 300]);
   });
 
   it('can handle a withdrawal of 100.00', () => {
@@ -33,7 +33,7 @@ describe('Bank Account', () => {
   it('each transaction has a date', () => {
     bankAccount.deposit(300.00);
     let date = "17/7/2018"
-    expect(bankAccount.viewTransactions()).toContain(date);
+    expect(bankAccount.viewTransactions()).toContain(['17/7/2018', 300]);
   })
 
   describe('when the withdrawal is greater than the balance', () => {
