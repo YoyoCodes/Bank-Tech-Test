@@ -25,37 +25,55 @@ describe('Bank Account', () => {
   });
 
   describe('#deposit', () => {
-    it('increases the balance by 300.00', () => {
-      bankAccount.deposit(300.00);
-      expect(bankAccount.balance()).toEqual(300.00);
+    describe('-successful deposit', () => {
+      it('increases the balance by 300.00', () => {
+        bankAccount.deposit(300.00);
+        expect(bankAccount.balance()).toEqual(300.00);
+      });
+
+      it('adds a deposit of 300.00 to the transaction list', () => {
+        spyOn(bankAccount._transactionList, "add");
+        bankAccount.deposit(300.00);
+        expect(bankAccount._transactionList.add).toHaveBeenCalled();
+      });
     });
 
-    it('adds a deposit of 300.00 to the transaction list', () => {
-      spyOn(bankAccount._transactionList, "add");
-      bankAccount.deposit(300.00);
-      expect(bankAccount._transactionList.add).toHaveBeenCalled();
+    describe('-unsuccessful deposit', () => {
+      it('when the user input is a string', () => {
+        expect( function() {bankAccount.deposit('string');}).toThrowError('Incorrect input, please try again');
+      });
+
+      it('when the amount is negative', () => {
+        expect( function() {bankAccount.deposit(-100.00);}).toThrowError('Incorrect input, please try again');
+      });
     });
   })
 
   describe('#withdrawal', () => {
-    it('decreases the balance by 100.00', () => {
-      bankAccount.deposit(300.00);
-      bankAccount.withdrawal(100.00);
-      expect(bankAccount.balance()).toEqual(200.00);
-    });
-
-    it('adds a withdrawal of 100.00 to the transaction list', () => {
-      spyOn(bankAccount._transactionList, "add");
-      bankAccount.deposit(200.00);
-      bankAccount.withdrawal(100.00);
-      expect(bankAccount._transactionList.add).toHaveBeenCalled();
-    });
-
-    describe('when the withdrawal is greater than the balance', () => {
-      it('does not allow the transaction', () => {
-        bankAccount.deposit(100);
-        expect( function() {bankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
+    describe('-successful withdrawal', () => {
+      it('decreases the balance by 100.00', () => {
+        bankAccount.deposit(300.00);
+        bankAccount.withdrawal(100.00);
+        expect(bankAccount.balance()).toEqual(200.00);
       });
+
+      it('adds a withdrawal of 100.00 to the transaction list', () => {
+        spyOn(bankAccount._transactionList, "add");
+        bankAccount.deposit(200.00);
+        bankAccount.withdrawal(100.00);
+        expect(bankAccount._transactionList.add).toHaveBeenCalled();
+      });
+    });
+
+    describe('-unsuccessful withdrawal', () => {
+        it('when the withdrawal is greater than the balance', () => {
+          bankAccount.deposit(100);
+          expect( function() {bankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
+        });
+
+        it('when user input is a string', () => {
+          expect( function() {bankAccount.withdrawal('string');}).toThrowError('Incorrect input, please try again');
+        });
     });
   });
 });

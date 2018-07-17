@@ -15,13 +15,21 @@
   };
 
   BankAccount.prototype.deposit = function(amount) {
-    this._balance += amount;
-    this._transactionList.add(amount, this._balance);
+    if (isNaN(amount)) {
+      throw new Error('Incorrect input, please try again');
+    }else if( amount < 0) {
+      throw new Error('Incorrect input, please try again');
+    }else{
+      this._balance += amount;
+      this._transactionList.add(amount, this._balance);
+    };
   };
 
   BankAccount.prototype.withdrawal = function(amount) {
     if (amount > this._balance) {
       throw new Error('Insufficient funds, please try again');
+    }else if (isNaN(amount)) {
+      throw new Error('Incorrect input, please try again');
     }else{
       this._balance -= amount;
       this._transactionList.add(-amount, this._balance);
