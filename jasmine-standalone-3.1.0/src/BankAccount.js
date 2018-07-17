@@ -1,6 +1,6 @@
-(function(exports) {
-  'use strict'
+'use strict';
 
+(function(exports) {
   function BankAccount() {
     this._balance = 0.00;
     this._transactionList = new TransactionHistory;

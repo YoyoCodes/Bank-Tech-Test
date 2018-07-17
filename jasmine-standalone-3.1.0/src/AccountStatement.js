@@ -1,5 +1,5 @@
+'use strict';
 (function(exports) {
-  'use strict'
   function AccountStatement(transactions) {
     this.header  = "  date || credit || debit || balance  ";
     this.transactions = transactions;

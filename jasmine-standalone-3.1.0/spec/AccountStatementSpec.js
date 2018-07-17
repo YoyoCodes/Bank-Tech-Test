@@ -31,5 +31,5 @@ describe('AccountStatement', () => {
     otherStatement.generateStatement();
     otherStatement.printStatement();
     expect(console.log).toHaveBeenCalledWith(header);
-  })
+  });
 });

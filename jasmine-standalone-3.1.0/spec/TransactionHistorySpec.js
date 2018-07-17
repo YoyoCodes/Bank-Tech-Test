@@ -15,5 +15,4 @@ describe('TransactionHistory', () => {
   it('has a default empty transaction list', () => {
     expect(transactionHistory.showList()).toEqual([]);
   });
-
 })
