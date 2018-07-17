@@ -28,8 +28,8 @@ date || credit || debit || balance
 ```
 
 ## Aproach
-I decided  to try doing this project in Javascript using SE6 syntax and combining the module patters with prototypes. <br>
-Writing user stories for the requirements: <br>
+<p>I decided  to try doing this project in Javascript using SE6 syntax and combining the module patters with prototypes mostly because I was curious about this aproach and how all would tie in together. My initial diagram consisted of three main modules. I constructed the first two separately and the third one I extracted from the main module, Bank Account. 
+<p>The second step was writing user stories for the requirements:<p>
 
 ```
 As a user
@@ -46,10 +46,8 @@ I want each transaction to have a date.
 ```
 
 ### Sample of how the code works:
-<a href="https://ibb.co/mb1Vwy"><img src="https://thumb.ibb.co/mb1Vwy/Screen_Shot_2018_07_17_at_16_50_44.png" alt="Screen_Shot_2018_07_17_at_16_50_44" border="0"></a>
+<a href="https://ibb.co/iK9vDd"><img src="https://preview.ibb.co/i4i0eJ/Console.png" alt="Console" border="0"></a>
 
 ## Running the tests
-
-Testing framework: Jasmine
-
-<a href="https://ibb.co/kdfepJ"><img src="https://thumb.ibb.co/kdfepJ/Screen_Shot_2018_07_17_at_16_50_59.png" alt="Screen_Shot_2018_07_17_at_16_50_59" border="0"></a>
+### Testing framework: Jasmine
+<a href="https://ibb.co/jVtNtd"><img src="https://preview.ibb.co/b8MmKJ/Tests.png" alt="Tests" border="0"></a>
