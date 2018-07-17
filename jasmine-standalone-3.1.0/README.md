@@ -24,7 +24,7 @@ date || credit || debit || balance
 ```
 
 ## Aproach
-
+I decided  to try doing this project in Javascript using SE6 syntax and combining the module patters with prototypes. <br>
 Writing user stories for the requirements: <br>
 
 ```
@@ -41,8 +41,13 @@ So I can keep track of transactions
 I want each transaction to have a date.
 ```
 
-## Getting started
+Sample of how the code works:
+<a href="https://ibb.co/mb1Vwy"><img src="https://thumb.ibb.co/mb1Vwy/Screen_Shot_2018_07_17_at_16_50_44.png" alt="Screen_Shot_2018_07_17_at_16_50_44" border="0"></a>
 
 ## Running the tests
 
-<img src="https://ibb.co/mb1Vwy"/>
+Testing framework: Jasmine
+
+<a href="https://ibb.co/kdfepJ"><img src="https://thumb.ibb.co/kdfepJ/Screen_Shot_2018_07_17_at_16_50_59.png" alt="Screen_Shot_2018_07_17_at_16_50_59" border="0"></a>
+
+
