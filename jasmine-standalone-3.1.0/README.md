@@ -41,7 +41,7 @@ So I can keep track of transactions
 I want each transaction to have a date.
 ```
 
-Sample of how the code works:
+### Sample of how the code works:
 <a href="https://ibb.co/mb1Vwy"><img src="https://thumb.ibb.co/mb1Vwy/Screen_Shot_2018_07_17_at_16_50_44.png" alt="Screen_Shot_2018_07_17_at_16_50_44" border="0"></a>
 
 ## Running the tests
