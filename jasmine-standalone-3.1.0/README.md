@@ -44,3 +44,5 @@ I want each transaction to have a date.
 ## Getting started
 
 ## Running the tests
+
+<img src="https://ibb.co/mb1Vwy"/>
