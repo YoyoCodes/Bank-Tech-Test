@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 (function(exports) {
   function TransactionHistory() {
     this.list = [];
