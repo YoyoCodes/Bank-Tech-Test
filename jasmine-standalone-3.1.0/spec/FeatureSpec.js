@@ -7,7 +7,7 @@ describe('Feature', () => {
   beforeEach(() => {
     bankAccount = new BankAccount;
     header = '  date || credit || debit || balance  ';
-    transaction = '17/7/2018  ||  500  ||  ||  500';
+    transaction = '17/7/2018  ||  500.00  ||  ||  500.00';
   });
 
   it('a user can make a deposit', () => {

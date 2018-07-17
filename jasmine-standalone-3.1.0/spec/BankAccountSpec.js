@@ -9,7 +9,7 @@ describe('Bank Account', () => {
     bankAccount = new BankAccount;
     date = "17/7/2018"
     header = '  date || credit || debit || balance  ';
-    transaction = '17/7/2018  ||  300  ||  ||  300';
+    transaction = '17/7/2018  ||  300.00  ||  ||  300.00';
   });
 
   it('has a default balance of 0.00', () => {

@@ -11,9 +11,17 @@
     let numberOfTransactions = this.transactions.length - 1;
     for (let i = numberOfTransactions; i >= 0; i--) {
       if (this.transactions[i]["amount"] > 0) {
-        this.statement.push(_generateCredit(this.transactions[i]["date"], this.transactions[i]["amount"], this.transactions[i]["balance"]))
+        this.statement.push(_generateCredit(
+                                            this.transactions[i]["date"],
+                                            this.transactions[i]["amount"].toFixed(2),
+                                            this.transactions[i]["balance"].toFixed(2))
+                                          )
       }else{
-        this.statement.push(_generateDebit(this.transactions[i]["date"], this.transactions[i]["amount"], this.transactions[i]["balance"]))
+        this.statement.push(_generateDebit(
+                                            this.transactions[i]["date"],
+                                            this.transactions[i]["amount"].toFixed(2),
+                                            this.transactions[i]["balance"].toFixed(2))
+                                          )
       };
     };
     return this.statement;
