@@ -14,7 +14,7 @@ BankAccount.prototype.viewTransactions = function() {
 
 BankAccount.prototype.deposit = function(amount) {
   this._balance += amount;
-  this._transactionList.push([_getDate(), amount], this._balance)
+  this._transactionList.push([_getDate(), amount, this._balance])
 };
 
 BankAccount.prototype.withdrawal = function(amount) {
