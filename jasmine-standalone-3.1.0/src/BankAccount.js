@@ -1,10 +1,15 @@
 'use strict'
-function BankAccount() {
+function BankAccount(AccountStatement) {
   this._balance = 0.00;
+  this._transactionList = [];
 };
 
 BankAccount.prototype.balance = function() {
   return this._balance
+};
+
+BankAccount.prototype.viewTransactions = function() {
+  return this._transactionList
 };
 
 BankAccount.prototype.deposit = function(amount) {

@@ -10,6 +10,10 @@ describe('Bank Account', () => {
     expect(bankAccount.balance()).toEqual(0.00);
   });
 
+  it('has a default empty transaction list', () => {
+    expect(bankAccount.viewTransactions()).toEqual([]);
+  });
+
   it('can handle a deposit of 300.00', () => {
     bankAccount.deposit(300.00);
     expect(bankAccount.balance()).toEqual(300.00);
