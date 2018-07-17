@@ -1,5 +1,9 @@
 # Bank Tech Test
 
+To interact with the app just fork the repo and clone it.
+Open SpecRunner in the browser to run the tests.
+Open the console on the same page to interact with the code.
+
 ## Requirements
 <ul>
   <li>You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)</li>
@@ -49,5 +53,3 @@ I want each transaction to have a date.
 Testing framework: Jasmine
 
 <a href="https://ibb.co/kdfepJ"><img src="https://thumb.ibb.co/kdfepJ/Screen_Shot_2018_07_17_at_16_50_59.png" alt="Screen_Shot_2018_07_17_at_16_50_59" border="0"></a>
-
-
