@@ -1,9 +1,9 @@
 (function(exports) {
   'use strict'
 
-  function BankAccount(AccountStatement) {
+  function BankAccount() {
     this._balance = 0.00;
-    this._transactionList = [];
+    this._transactionList = new TransactionHistory;
   };
 
   BankAccount.prototype.balance = function() {
@@ -16,7 +16,7 @@
 
   BankAccount.prototype.deposit = function(amount) {
     this._balance += amount;
-    this._transactionList.push([_getDate(), amount, this._balance])
+    this._transactionList.add(amount, this._balance)
   };
 
   BankAccount.prototype.withdrawal = function(amount) {
@@ -24,22 +24,14 @@
       throw new Error('Insufficient funds, please try again');
     }else{
       this._balance -= amount;
-      this._transactionList.push([_getDate(), -amount, this._balance])
+      this._transactionList.add(-amount, this._balance)
     }
   };
 
   BankAccount.prototype.viewStatement = function() {
-    let statement = new AccountStatement(this._transactionList);
+    let statement = new AccountStatement(this._transactionList.showList());
     statement.generateStatement();
     statement.printStatement();
-  }
-
-  function _getDate() {
-    let dateObj = new Date();
-    let month = dateObj.getUTCMonth() + 1;
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-    return  day + "/" + month + "/" + year;
   }
 
 exports.BankAccount = BankAccount;
