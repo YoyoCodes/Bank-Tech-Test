@@ -28,4 +28,12 @@ describe('AccountStatement', () => {
   it('generates a statement in reverse chronological order', () => {
     expect(statement.generateStatement()).toEqual(expectedResult);
   });
+
+  it('prints a statement', () => {
+    let otherStatement = new AccountStatement([]);
+    spyOn(console, 'log');
+    otherStatement.generateStatement();
+    otherStatement.printStatement();
+    expect(console.log).toHaveBeenCalledWith(header);
+  })
 });
