@@ -14,24 +14,24 @@
         this.statement.push(_generateCredit(this.transactions[i]["date"], this.transactions[i]["amount"], this.transactions[i]["balance"]))
       }else{
         this.statement.push(_generateDebit(this.transactions[i]["date"], this.transactions[i]["amount"], this.transactions[i]["balance"]))
-      }
-    }
+      };
+    };
     return this.statement;
-  }
+  };
 
   AccountStatement.prototype.printStatement = function () {
     for (let i = 0; i<this.statement.length; i++) {
       console.log(this.statement[i]);
-    }
-  }
+    };
+  };
 
   function _generateCredit(date, amount, balance) {
     return date + "  ||  " + amount + "  ||  ||  " + balance;
-  }
+  };
 
   function _generateDebit(date, amount, balance) {
     return date + "  ||  ||  " + amount*(-1) +   "  ||  " + balance;
-  }
+  };
 
 exports.AccountStatement = AccountStatement;
 })(this);

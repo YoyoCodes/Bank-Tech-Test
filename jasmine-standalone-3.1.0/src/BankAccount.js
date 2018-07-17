@@ -7,7 +7,7 @@
   };
 
   BankAccount.prototype.balance = function() {
-    return this._balance
+    return this._balance;
   };
 
   BankAccount.prototype.viewTransactions = function() {
@@ -16,7 +16,7 @@
 
   BankAccount.prototype.deposit = function(amount) {
     this._balance += amount;
-    this._transactionList.add(amount, this._balance)
+    this._transactionList.add(amount, this._balance);
   };
 
   BankAccount.prototype.withdrawal = function(amount) {
@@ -24,15 +24,15 @@
       throw new Error('Insufficient funds, please try again');
     }else{
       this._balance -= amount;
-      this._transactionList.add(-amount, this._balance)
-    }
+      this._transactionList.add(-amount, this._balance);
+    };
   };
 
   BankAccount.prototype.viewStatement = function() {
     let statement = new AccountStatement(this._transactionList.showList());
     statement.generateStatement();
     statement.printStatement();
-  }
+  };
 
 exports.BankAccount = BankAccount;
 })(this);

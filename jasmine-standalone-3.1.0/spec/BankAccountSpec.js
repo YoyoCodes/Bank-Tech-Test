@@ -58,5 +58,4 @@ describe('Bank Account', () => {
       });
     });
   });
-
 });
