@@ -35,6 +35,10 @@ I want to be able to make a deposit into a bank account
 As a user
 So I can use money
 I want to be able to make a withdrawal
+
+As a user
+So I can keep track of transactions
+I want each transaction to have a date.
 ```
 
 ## Getting started

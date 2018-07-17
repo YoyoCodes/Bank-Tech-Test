@@ -14,6 +14,7 @@ BankAccount.prototype.viewTransactions = function() {
 
 BankAccount.prototype.deposit = function(amount) {
   this._balance += amount;
+  this._transactionList.push(_getDate(), amount)
 };
 
 BankAccount.prototype.withdrawal = function(amount) {
@@ -21,5 +22,14 @@ BankAccount.prototype.withdrawal = function(amount) {
     throw new Error('Insufficient funds, please try again');
   }else{
     this._balance -= amount;
+    this._transactionList.push(_getDate(), -amount)
   }
 };
+
+function _getDate() {
+  var dateObj = new Date();
+  var month = dateObj.getUTCMonth() + 1;
+  var day = dateObj.getUTCDate();
+  var year = dateObj.getUTCFullYear();
+  return  day + "/" + month + "/" + year;
+}
