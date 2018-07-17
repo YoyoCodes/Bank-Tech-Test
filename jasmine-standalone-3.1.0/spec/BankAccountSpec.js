@@ -1,9 +1,15 @@
 'use strict'
 describe('Bank Account', () => {
   let bankAccount;
+  let date;
+  let header;
+  let transaction;
 
   beforeEach(() => {
     bankAccount = new BankAccount;
+    date = "17/7/2018"
+    header = '  date || credit || debit || balance  ';
+    transaction = '17/7/2018  ||  300  ||  ||  300';
   });
 
   it('has a default balance of 0.00', () => {
@@ -32,8 +38,15 @@ describe('Bank Account', () => {
 
   it('each transaction has a date', () => {
     bankAccount.deposit(300.00);
-    let date = "17/7/2018"
     expect(bankAccount.viewTransactions()).toContain(['17/7/2018', 300, 300]);
+  })
+
+  it('prints a statement', () => {
+    bankAccount.deposit(300.00);
+    spyOn(console, 'log');
+    bankAccount.viewStatement();
+    expect(console.log).toHaveBeenCalledWith(header);
+    expect(console.log).toHaveBeenCalledWith(transaction);
   })
 
   describe('when the withdrawal is greater than the balance', () => {

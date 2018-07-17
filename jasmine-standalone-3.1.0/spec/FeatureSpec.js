@@ -21,7 +21,7 @@ describe('Feature', () => {
     expect(bankAccount.balance()).toEqual(200.00);
   });
 
-  it('a user can see a printed statement', () => {
+  it('a user can see a printed statement of his transactions', () => {
     bankAccount.deposit(500.00);
     spyOn(console, 'log');
     bankAccount.viewStatement();
