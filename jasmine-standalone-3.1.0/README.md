@@ -28,7 +28,7 @@ date || credit || debit || balance
 ```
 
 ## Aproach
-<p>I decided  to try doing this project in Javascript using SE6 syntax and combining the module patters with prototypes mostly because I was curious about this aproach and how all would tie in together. My initial diagram consisted of three main modules. I constructed the first two separately and the third one I extracted from the main module, Bank Account. 
+<p>I decided  to try doing this project in Javascript and combining the module patters with prototypes mostly because I was curious about this aproach and how all would tie in together. My initial diagram consisted of three main modules. I constructed the first two separately and the third one I extracted from the main module, Bank Account. 
 <p>The second step was writing user stories for the requirements:<p>
 
 ```
