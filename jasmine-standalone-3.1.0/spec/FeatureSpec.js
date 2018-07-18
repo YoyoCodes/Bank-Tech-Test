@@ -24,7 +24,6 @@ describe('Feature', () => {
 
   it('a user can see a printed statement of his transactions', () => {
     bankAccount.deposit(500.00);
-        bankAccount.viewStatement();
     spyOn(console, 'log');
     bankAccount.viewStatement();
     expect(console.log).toHaveBeenCalledWith(header);
