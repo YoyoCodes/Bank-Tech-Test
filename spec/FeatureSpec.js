@@ -30,5 +30,15 @@ describe('Feature', () => {
     expect(console.log).toHaveBeenCalledWith(transaction);
   })
 
+  it('a user can\'t make an invalid deposit', () => {
+    let bankAccount = new BankAccount;
+    expect( function() {bankAccount.deposit('string');}).toThrowError('Incorrect input, please try again');
+    expect( function() {bankAccount.deposit(-100.00);}).toThrowError('Incorrect input, please try again');
+  })
 
+  it('a user can\'t make an invalid withdrawal', () => {
+    let bankAccount = new BankAccount;
+    expect( function() {bankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
+    expect( function() {bankAccount.withdrawal('string');}).toThrowError('Incorrect input, please try again');
+  })
 });
