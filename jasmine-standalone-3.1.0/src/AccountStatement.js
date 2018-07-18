@@ -8,20 +8,12 @@
 
   AccountStatement.prototype.generateStatement = function () {
     this.statement.push(this.header);
-    let numberOfTransactions = this.transactions.length - 1;
-    for (let i = numberOfTransactions; i >= 0; i--) {
+    for (let i = this.transactions.length - 1; i >= 0; i--) {
       if (this.transactions[i]["amount"] > 0) {
-        this.statement.push(_generateCredit(
-                                            this.transactions[i]["date"],
-                                            this.transactions[i]["amount"].toFixed(2),
-                                            this.transactions[i]["balance"].toFixed(2))
-                                          )
+        let params = {"date" : this.transactions[i]["date"], "amount" : this.transactions[i]["amount"].toFixed(2), "balance" : this.transactions[i]["balance"].toFixed(2)}
+        this.statement.push(_generateCredit(params));
       }else{
-        this.statement.push(_generateDebit(
-                                            this.transactions[i]["date"],
-                                            this.transactions[i]["amount"].toFixed(2),
-                                            this.transactions[i]["balance"].toFixed(2))
-                                          )
+        this.statement.push(_generateDebit(params));
       };
     };
     return this.statement;
@@ -33,12 +25,12 @@
     };
   };
 
-  function _generateCredit(date, amount, balance) {
-    return date + "  ||  " + amount + "  ||  ||  " + balance;
+  function _generateCredit(params) {
+    return params["date"] + "  ||  " + params["amount"] + "  ||  ||  " + params["balance"];
   };
 
-  function _generateDebit(date, amount, balance) {
-    return date + "  ||  ||  " + amount*(-1) +   "  ||  " + balance;
+  function _generateDebit(params) {
+    return params["date"] + "  ||  ||  " + params["amount"](-1) +   "  ||  " + params["balance"];
   };
 
 exports.AccountStatement = AccountStatement;
