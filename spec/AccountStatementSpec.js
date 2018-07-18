@@ -8,18 +8,18 @@ describe('AccountStatement', () => {
   header = "  date || credit || debit || balance  ";
 
   beforeEach(() => {
-    statement = new AccountStatement(transactions);
+    statement = new AccountStatement();
   });
 
   it('has a header by default', () => {
-    let otherStatement = new AccountStatement([]);
-    expect(otherStatement.generateStatement()).toEqual([header]);
+    let otherStatement = new AccountStatement();
+    expect(otherStatement.generateStatement([])).toEqual([header]);
   });
 
   it('prints an empty statement', () => {
-    let otherStatement = new AccountStatement([]);
+    let otherStatement = new AccountStatement();
     spyOn(console, 'log');
-    otherStatement.generateStatement();
+    otherStatement.generateStatement([]);
     otherStatement.printStatement();
     expect(console.log).toHaveBeenCalledWith(header);
   });

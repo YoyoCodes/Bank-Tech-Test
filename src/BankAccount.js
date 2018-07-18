@@ -1,9 +1,10 @@
 'use strict';
 
 (function(exports) {
-  function BankAccount() {
+  function BankAccount(transaction = new TransactionHistory, statement = new AccountStatement) {
     this._balance = 0.00;
-    this._transactionList = new TransactionHistory;
+    this._transactionList = transaction;
+    this._statement = statement;
   };
 
   BankAccount.prototype.balance = function() {
@@ -37,9 +38,7 @@
   };
 
   BankAccount.prototype.viewStatement = function() {
-    let statement = new AccountStatement(this._transactionList.showList());
-    statement.generateStatement();
-    statement.printStatement();
+    this._statement.handleStatement(this._transactionList.showList());
   };
 
 exports.BankAccount = BankAccount;
