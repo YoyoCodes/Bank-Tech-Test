@@ -7,7 +7,7 @@ describe('Feature', () => {
   beforeEach(() => {
     bankAccount = new BankAccount;
     header = '  date || credit || debit || balance  ';
-    transaction = '17/7/2018  ||  500.00  ||  ||  500.00';
+    transaction = '18/7/2018  ||  500.00  ||  ||  500.00';
   });
 
   it('a user can make a deposit', () => {
@@ -28,4 +28,6 @@ describe('Feature', () => {
     expect(console.log).toHaveBeenCalledWith(header);
     expect(console.log).toHaveBeenCalledWith(transaction);
   })
+
+
 });
