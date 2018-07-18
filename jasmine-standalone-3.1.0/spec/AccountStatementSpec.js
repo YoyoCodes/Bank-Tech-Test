@@ -5,15 +5,11 @@ describe('AccountStatement', () => {
   let expectedResult;
   let header;
 
+  transactions = [["17/07/2018", 300, 300], ["18/07/2018", -100, 200]];
+  header = "  date || credit || debit || balance  ";
+
   beforeEach(() => {
-    transactions = [["17/07/2018", 300, 300], ["18/07/2018", -100, 200]];
     statement = new AccountStatement(transactions);
-    header = "  date || credit || debit || balance  ";
-    expectedResult = [
-                      "  date || credit || debit || balance  ",
-                      "18/07/2018  ||  ||  100  ||  200",
-                      "17/07/2018  ||  300  ||  ||  300"
-                    ];
   });
 
   it('is defined', () => {
