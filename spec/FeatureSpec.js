@@ -5,7 +5,7 @@ describe('Feature', () => {
   let transaction;
 
   header = '  date || credit || debit || balance  ';
-  transaction = '18/07/2018  ||  500.00  ||  ||  500.00';
+  transaction = '01/02/2010  ||  500.00  ||  ||  500.00';
 
   beforeEach(() => {
     bankAccount = new BankAccount;
@@ -23,11 +23,15 @@ describe('Feature', () => {
   });
 
   it('a user can see a printed statement of his transactions', () => {
+    jasmine.clock().install();
+    var fakeDate = new Date(2010, 1, 1);
+    jasmine.clock().mockDate(fakeDate);
     bankAccount.deposit(500.00);
     spyOn(console, 'log');
     bankAccount.viewStatement();
     expect(console.log).toHaveBeenCalledWith(header);
     expect(console.log).toHaveBeenCalledWith(transaction);
+    jasmine.clock().uninstall();
   })
 
   it('a user can\'t make an invalid deposit', () => {
