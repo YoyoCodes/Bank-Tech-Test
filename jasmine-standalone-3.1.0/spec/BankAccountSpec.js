@@ -30,12 +30,6 @@ describe('Bank Account', () => {
         bankAccount.deposit(300.00);
         expect(bankAccount.balance()).toEqual(300.00);
       });
-
-      it('adds a deposit of 300.00 to the transaction list', () => {
-        spyOn(bankAccount._transactionList, "add");
-        bankAccount.deposit(300.00);
-        expect(bankAccount._transactionList.add).toHaveBeenCalled();
-      });
     });
 
     describe('-unsuccessful deposit', () => {
@@ -55,13 +49,6 @@ describe('Bank Account', () => {
         bankAccount.deposit(300.00);
         bankAccount.withdrawal(100.00);
         expect(bankAccount.balance()).toEqual(200.00);
-      });
-
-      it('adds a withdrawal of 100.00 to the transaction list', () => {
-        spyOn(bankAccount._transactionList, "add");
-        bankAccount.deposit(200.00);
-        bankAccount.withdrawal(100.00);
-        expect(bankAccount._transactionList.add).toHaveBeenCalled();
       });
     });
 
