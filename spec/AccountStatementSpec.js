@@ -1,8 +1,7 @@
 'use strict'
 describe('AccountStatement', () => {
   let statement;
-  let transactions;
-  let expectedResult;
+  let transaction;
   let header;
 
   header = "  date || credit || debit || balance  ";
@@ -12,15 +11,12 @@ describe('AccountStatement', () => {
   });
 
   it('has a header by default', () => {
-    let otherStatement = new AccountStatement();
-    expect(otherStatement.generateStatement([])).toEqual([header]);
+    expect(statement.generateStatement([])).toEqual([header]);
   });
 
   it('prints an empty statement', () => {
-    let otherStatement = new AccountStatement();
     spyOn(console, 'log');
-    otherStatement.generateStatement([]);
-    otherStatement.printStatement();
+    statement.handleStatement([]);
     expect(console.log).toHaveBeenCalledWith(header);
   });
 });
