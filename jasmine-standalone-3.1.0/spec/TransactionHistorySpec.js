@@ -13,8 +13,11 @@ describe('TransactionHistory', () => {
   it('can add a transaction to the list', () => {
     let amount = 100.00;
     let balance = 100.00;
-    let date = "18/07/2018";
+    jasmine.clock().install();
+    var fakeDate = new Date(2010, 1, 1);
+    jasmine.clock().mockDate(fakeDate);
     transactionHistory.add(amount, balance);
-    expect(transactionHistory.showList()).toEqual([{"date" : date, "amount" : amount, "balance" : balance}])
+    expect(transactionHistory.showList()).toEqual([{"date" : fakeDate.toLocaleDateString("en-GB"), "amount" : amount, "balance" : balance}]);
+    jasmine.clock().uninstall();
   });
 });
