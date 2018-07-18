@@ -11,10 +11,6 @@ describe('AccountStatement', () => {
     statement = new AccountStatement(transactions);
   });
 
-  it('is defined', () => {
-    expect(statement).toEqual(jasmine.any(AccountStatement));
-  });
-
   it('has a header by default', () => {
     let otherStatement = new AccountStatement([]);
     expect(otherStatement.generateStatement()).toEqual([header]);
