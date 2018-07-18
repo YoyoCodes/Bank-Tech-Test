@@ -17,11 +17,12 @@ describe('Bank Account', () => {
   });
 
   it('prints a statement', () => {
-    bankAccount.deposit(300.00);
-    spyOn(console, 'log');
-    bankAccount.viewStatement();
-    expect(console.log).toHaveBeenCalledWith(header);
-    expect(console.log).toHaveBeenCalledWith(transaction);
+    let fakeStatement = jasmine.createSpyObj('AccountStatement',['handleStatement']);
+    let fakeHistory = new TransactionHistory();
+    spyOn(fakeHistory, 'showList').and.returnValue([]);
+    let newBankAccount = new BankAccount(fakeHistory, fakeStatement);
+    newBankAccount.viewStatement();
+    expect(fakeStatement.handleStatement).toHaveBeenCalledWith([]);
   });
 
   describe('#deposit', () => {
