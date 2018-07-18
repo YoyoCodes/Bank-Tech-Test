@@ -5,7 +5,6 @@ describe('AccountStatement', () => {
   let expectedResult;
   let header;
 
-  transactions = [["17/07/2018", 300, 300], ["18/07/2018", -100, 200]];
   header = "  date || credit || debit || balance  ";
 
   beforeEach(() => {
@@ -21,7 +20,7 @@ describe('AccountStatement', () => {
     expect(otherStatement.generateStatement()).toEqual([header]);
   });
 
-  it('prints a statement', () => {
+  it('prints an empty statement', () => {
     let otherStatement = new AccountStatement([]);
     spyOn(console, 'log');
     otherStatement.generateStatement();
