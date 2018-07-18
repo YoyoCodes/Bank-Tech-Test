@@ -5,11 +5,11 @@ describe('Bank Account', () => {
   let header;
   let transaction;
 
+  header = '  date || credit || debit || balance  ';
+  transaction = '18/7/2018  ||  300.00  ||  ||  300.00';
+
   beforeEach(() => {
     bankAccount = new BankAccount;
-    date = "18/7/2018"
-    header = '  date || credit || debit || balance  ';
-    transaction = '18/7/2018  ||  300.00  ||  ||  300.00';
   });
 
   it('has a default balance of 0.00', () => {
