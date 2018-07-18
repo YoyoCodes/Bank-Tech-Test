@@ -19,11 +19,8 @@
   };
 
   function _getDate() {
-    let dateObj = new Date();
-    let month = dateObj.getUTCMonth() + 1;
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-    return  day + "/" + month + "/" + year;
+    let date = new Date();
+    return date.toLocaleDateString("en-GB");
   };
 
 exports.TransactionHistory = TransactionHistory;

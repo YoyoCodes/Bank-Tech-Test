@@ -6,7 +6,7 @@ describe('Bank Account', () => {
   let transaction;
 
   header = '  date || credit || debit || balance  ';
-  transaction = '18/7/2018  ||  300.00  ||  ||  300.00';
+  transaction = '18/07/2018  ||  300.00  ||  ||  300.00';
 
   beforeEach(() => {
     bankAccount = new BankAccount;

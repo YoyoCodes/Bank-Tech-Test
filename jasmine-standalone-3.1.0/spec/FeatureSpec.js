@@ -4,10 +4,11 @@ describe('Feature', () => {
   let header;
   let transaction;
 
+  header = '  date || credit || debit || balance  ';
+  transaction = '18/07/2018  ||  500.00  ||  ||  500.00';
+
   beforeEach(() => {
     bankAccount = new BankAccount;
-    header = '  date || credit || debit || balance  ';
-    transaction = '18/7/2018  ||  500.00  ||  ||  500.00';
   });
 
   it('a user can make a deposit', () => {
@@ -23,6 +24,7 @@ describe('Feature', () => {
 
   it('a user can see a printed statement of his transactions', () => {
     bankAccount.deposit(500.00);
+        bankAccount.viewStatement();
     spyOn(console, 'log');
     bankAccount.viewStatement();
     expect(console.log).toHaveBeenCalledWith(header);
