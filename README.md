@@ -50,4 +50,4 @@ I want each transaction to have a date.
 
 ## Running the tests
 ### Testing framework: Jasmine
-<a href="https://ibb.co/jVtNtd"><img src="https://preview.ibb.co/b8MmKJ/Tests.png" alt="Tests" border="0"></a>
+<a href="https://ibb.co/ib6Eby"><img src="https://preview.ibb.co/nEtuby/Jasmine.png" alt="Jasmine" border="0"></a>
