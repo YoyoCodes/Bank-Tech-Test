@@ -4,9 +4,15 @@ describe('Bank Account', () => {
   let date;
   let header;
   let transaction;
+  let fakeHistory;
+  let newBankAccount;
+  let fakeStatement;
 
   beforeEach(() => {
     bankAccount = new BankAccount;
+    fakeHistory = jasmine.createSpyObj('TransactionHistory',['add', 'showList']);
+    fakeStatement = jasmine.createSpyObj('AccountStatement',['handleStatement']);
+    newBankAccount = new BankAccount(fakeHistory, fakeStatement);
   });
 
   it('has a default balance of 0.00', () => {
@@ -14,19 +20,15 @@ describe('Bank Account', () => {
   });
 
   it('prints a statement', () => {
-    let fakeStatement = jasmine.createSpyObj('AccountStatement',['handleStatement']);
-    let fakeHistory = new TransactionHistory();
-    spyOn(fakeHistory, 'showList').and.returnValue([]);
-    let newBankAccount = new BankAccount(fakeHistory, fakeStatement);
     newBankAccount.viewStatement();
-    expect(fakeStatement.handleStatement).toHaveBeenCalledWith([]);
+    expect(fakeStatement.handleStatement).toHaveBeenCalled();
   });
 
   describe('#deposit', () => {
     describe('-successful deposit', () => {
       it('increases the balance by 300.00', () => {
-        bankAccount.deposit(300.00);
-        expect(bankAccount.balance()).toEqual(300.00);
+        newBankAccount.deposit(300.00);
+        expect(newBankAccount.balance()).toEqual(300.00);
       });
     });
 
@@ -44,16 +46,16 @@ describe('Bank Account', () => {
   describe('#withdrawal', () => {
     describe('-successful withdrawal', () => {
       it('decreases the balance by 100.00', () => {
-        bankAccount.deposit(300.00);
-        bankAccount.withdrawal(100.00);
-        expect(bankAccount.balance()).toEqual(200.00);
+        newBankAccount.deposit(300.00);
+        newBankAccount.withdrawal(100.00);
+        expect(newBankAccount.balance()).toEqual(200.00);
       });
     });
 
     describe('-unsuccessful withdrawal', () => {
         it('when the withdrawal is greater than the balance', () => {
-          bankAccount.deposit(100);
-          expect( function() {bankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
+          newBankAccount.deposit(100);
+          expect( function() {newBankAccount.withdrawal(200);}).toThrowError('Insufficient funds, please try again');
         });
 
         it('when user input is a string', () => {
